@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - ConnectSMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #0a0e27;
+            color: white;
+            line-height: 1.8;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #1e3a8a 0%, #0a0e27 50%, #000000 100%);
+        }
+
+        .nebula {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .nebula-cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: nebulaDrift 20s infinite alternate;
+        }
+
+        .nebula-cloud:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.5) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation-duration: 25s;
+        }
+
+        .nebula-cloud:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.4) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation-duration: 30s;
+        }
+
+        @keyframes nebulaDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            animation: orbit 60s linear infinite;
+        }
+
+        .planet1 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a);
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.6), inset -15px -15px 30px rgba(0,0,0,0.5);
+            top: 20%;
+            right: 10%;
+            animation-duration: 50s;
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FFD93D, #FF6B6B);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(255, 217, 61, 0.8);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 120px 20px 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 217, 61, 0.5));
+        }
+
+        .content-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            position: relative;
+        }
+
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            padding: 60px;
+            box-shadow: 
+                0 0 60px rgba(102, 126, 234, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(102, 126, 234, 0.05);
+        }
+
+        .terms-container h2 {
+            font-size: 32px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #4ecdc4 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .terms-container h2:first-child {
+            margin-top: 0;
+        }
+
+        .terms-container h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+        }
+
+        .terms-container p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 16px;
+        }
+
+        .terms-container ul, .terms-container ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .terms-container li {
+            margin-bottom: 10px;
+        }
+
+        .terms-container strong {
+            color: #FFD93D;
+            font-weight: 700;
+        }
+
+        .last-updated {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .placeholder {
+            background: rgba(255, 217, 61, 0.1);
+            border-left: 4px solid #FFD93D;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .terms-container {
+                padding: 30px;
+            }
+
+            .terms-container h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <section class="hero">
+        <div class="nebula">
+            <div class="nebula-cloud"></div>
+            <div class="nebula-cloud"></div>
+        </div>
+        
+        <div class="planet planet1"></div>
+
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">💬</div>
+                    ConnectSMS
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero-content">
+                <h1>
+                    <span class="highlight">Terms of Service</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="terms-container">
+            <p class="last-updated"><strong>Last Updated:</strong> [Insert Date Here]</p>
+
+            <div class="placeholder">
+                💡 <strong>Note:</strong> This is a template. Replace all content in brackets [like this] with your actual information. Have a lawyer review before publishing!
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+                Welcome to ConnectSMS. By accessing or using our SMS-based service, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our service.
+            </p>
+            <p>
+                These Terms constitute a legally binding agreement between you and [Your Company Name] ("we," "us," or "our"). We reserve the right to modify these Terms at any time, and such modifications will be effective immediately upon posting.
+            </p>
+
+            <p class="placeholder">
+                [Add your company's legal name and registration details]
+            </p>
+
+            <h2>2. Description of Service</h2>
+            <p>
+                ConnectSMS provides an SMS-based platform that connects individuals seeking social services with local service providers using AI-powered matching technology. Our service includes:
+            </p>
+            <ul>
+                <li>SMS messaging interface for service requests</li>
+                <li>AI-powered matching with local social service providers</li>
+                <li>Connection facilitation between clients and providers</li>
+                <li>Information sharing and referral services</li>
+                <li>[Add other specific services you provide]</li>
+            </ul>
+
+            <p class="placeholder">
+                [Customize this section to accurately describe your specific services]
+            </p>
+
+            <h2>3. User Eligibility and Account</h2>
+            
+            <h3>3.1 Age Requirement</h3>
+            <p>
+                You must be at least 18 years of age to use this service. If you are under 18, you may only use the service with the involvement and consent of a parent or legal guardian.
+            </p>
+
+            <h3>3.2 Account Registration</h3>
+            <p>
+                To use our service, you may need to provide:
+            </p>
+            <ul>
+                <li>A valid phone number</li>
+                <li>Basic personal information</li>
+                <li>Location information (for local matching)</li>
+                <li>[Other required information]</li>
+            </ul>
+
+            <p>
+                You agree to provide accurate, current, and complete information and to update such information to maintain its accuracy.
+            </p>
+
+            <p class="placeholder">
+                [Specify your registration requirements and account policies]
+            </p>
+
+            <h2>4. User Responsibilities and Conduct</h2>
+            <p>
+                When using ConnectSMS, you agree to:
+            </p>
+            <ul>
+                <li><strong>Use the service lawfully</strong> - Comply with all applicable laws and regulations</li>
+                <li><strong>Provide accurate information</strong> - Submit truthful service requests and personal details</li>
+                <li><strong>Respect others</strong> - Treat providers and other users with respect and courtesy</li>
+                <li><strong>Protect your account</strong> - Keep your phone number and access information secure</li>
+                <li><strong>Report issues</strong> - Notify us of any misuse or problems with the service</li>
+            </ul>
+
+            <h3>4.1 Prohibited Activities</h3>
+            <p>
+                You agree NOT to:
+            </p>
+            <ul>
+                <li>Use the service for any illegal or unauthorized purpose</li>
+                <li>Submit false, misleading, or fraudulent service requests</li>
+                <li>Harass, abuse, or harm service providers or other users</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+                <li>Use automated systems or bots to access the service</li>
+                <li>Interfere with or disrupt the service or servers</li>
+                <li>Resell or commercially exploit the service without authorization</li>
+                <li>[Add other prohibited activities]</li>
+            </ul>
+
+            <p class="placeholder">
+                [Customize prohibited activities based on your service]
+            </p>
+
+            <h2>5. SMS Communication Terms</h2>
+            
+            <h3>5.1 Message Frequency</h3>
+            <p>
+                By using our service, you consent to receive SMS messages from ConnectSMS and our partner service providers. Message frequency may vary based on your usage and service requests.
+            </p>
+
+            <h3>5.2 Message and Data Rates</h3>
+            <p>
+                Standard message and data rates may apply based on your mobile carrier's plan. You are responsible for all charges incurred from your mobile carrier.
+            </p>
+
+            <h3>5.3 Opt-Out</h3>
+            <p>
+                You may opt-out of receiving messages at any time by:
+            </p>
+            <ul>
+                <li>Texting "STOP" to [your service number]</li>
+                <li>Contacting us at [your contact information]</li>
+                <li>[Other opt-out methods]</li>
+            </ul>
+
+            <h3>5.4 Supported Carriers</h3>
+            <p>
+                Our service is available on major carriers including [AT&T, T-Mobile, Verizon, Sprint, etc.]. Service availability may vary by carrier and location.
+            </p>
+
+            <p class="placeholder">
+                [Add specific SMS terms, carrier information, and TCPA compliance details]
+            </p>
+
+            <h2>6. Privacy and Data Usage</h2>
+            <p>
+                Your privacy is important to us. Our collection, use, and sharing of your personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference. By using our service, you consent to our data practices as described in the Privacy Policy.
+            </p>
+
+            <p>
+                Key points include:
+            </p>
+            <ul>
+                <li>We collect information necessary to provide our service</li>
+                <li>We use AI to match you with appropriate service providers</li>
+                <li>We share information with providers to facilitate connections</li>
+                <li>We implement security measures to protect your data</li>
+                <li>You have rights regarding your personal information</li>
+            </ul>
+
+            <p>
+                Please review our <a href="privacy-policy.html" style="color: #4ecdc4; text-decoration: underline;">Privacy Policy</a> for complete details.
+            </p>
+
+            <h2>7. Service Provider Relationships</h2>
+            <p>
+                <strong>Important:</strong> ConnectSMS acts as a connection platform between individuals and social service providers. We do not:
+            </p>
+            <ul>
+                <li>Provide social services directly</li>
+                <li>Employ or control service providers</li>
+                <li>Guarantee the quality, safety, or legality of services provided by third parties</li>
+                <li>Endorse any specific provider or service</li>
+            </ul>
+
+            <p>
+                Service providers are independent entities. Any agreements, services, or relationships you establish with providers are between you and them directly. We are not responsible for their actions, services, or any disputes that may arise.
+            </p>
+
+            <p class="placeholder">
+                [Clarify your relationship with service providers and liability limitations]
+            </p>
+
+            <h2>8. Disclaimers and Limitations of Liability</h2>
+            
+            <h3>8.1 Service "As Is"</h3>
+            <p>
+                THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+            </p>
+
+            <h3>8.2 No Guarantee of Results</h3>
+            <p>
+                We do not guarantee that:
+            </p>
+            <ul>
+                <li>You will be matched with a service provider</li>
+                <li>Service providers will have availability or capacity</li>
+                <li>The service will meet your specific needs</li>
+                <li>The service will be uninterrupted, timely, or error-free</li>
+                <li>AI matching will always produce optimal results</li>
+            </ul>
+
+            <h3>8.3 Limitation of Liability</h3>
+            <p>
+                TO THE MAXIMUM EXTENT PERMITTED BY LAW, CONNECTSMS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.
+            </p>
+
+            <p>
+                Our total liability to you for all claims arising from or related to the service shall not exceed [amount, e.g., $100 or the amount you paid us in the last 12 months].
+            </p>
+
+            <p class="placeholder">
+                [Consult with a lawyer about appropriate liability limitations for your jurisdiction]
+            </p>
+
+            <h2>9. Emergency Services</h2>
+            <p>
+                <strong>⚠️ IMPORTANT:</strong> ConnectSMS is NOT an emergency service. If you are experiencing a medical, safety, or life-threatening emergency, immediately contact:
+            </p>
+            <ul>
+                <li><strong>911</strong> (in the United States)</li>
+                <li>Your local emergency services number</li>
+                <li>Go to the nearest emergency room</li>
+            </ul>
+
+            <p>
+                Do not use our service for emergency situations. We cannot guarantee immediate response times and are not equipped to handle emergency requests.
+            </p>
+
+            <h2>10. Intellectual Property</h2>
+            <p>
+                All content, features, and functionality of the ConnectSMS service, including but not limited to text, graphics, logos, software, and AI algorithms, are owned by [Your Company Name] and are protected by copyright, trademark, and other intellectual property laws.
+            </p>
+
+            <p>
+                You may not copy, modify, distribute, sell, or lease any part of our service without our express written permission.
+            </p>
+
+            <p class="placeholder">
+                [Add specific intellectual property terms for your service]
+            </p>
+
+            <h2>11. Termination</h2>
+            
+            <h3>11.1 Your Right to Terminate</h3>
+            <p>
+                You may stop using our service at any time by texting "STOP" or contacting us to close your account.
+            </p>
+
+            <h3>11.2 Our Right to Terminate</h3>
+            <p>
+                We reserve the right to suspend or terminate your access to the service at any time, with or without notice, for any reason, including if:
+            </p>
+            <ul>
+                <li>You violate these Terms</li>
+                <li>You engage in fraudulent or illegal activity</li>
+                <li>Your use harms other users or our service</li>
+                <li>We are required to do so by law</li>
+            </ul>
+
+            <h3>11.3 Effect of Termination</h3>
+            <p>
+                Upon termination, your right to use the service will immediately cease. Sections of these Terms that by their nature should survive termination shall survive, including intellectual property provisions, disclaimers, and limitations of liability.
+            </p>
+
+            <h2>12. Dispute Resolution</h2>
+            
+            <h3>12.1 Governing Law</h3>
+            <p>
+                These Terms shall be governed by and construed in accordance with the laws of [Your State/Country], without regard to its conflict of law provisions.
+            </p>
+
+            <h3>12.2 Arbitration Agreement</h3>
+            <p class="placeholder">
+                [Consider adding arbitration clause - consult with lawyer]
+            </p>
+
+            <h3>12.3 Class Action Waiver</h3>
+            <p class="placeholder">
+                [Consider adding class action waiver - consult with lawyer]
+            </p>
+
+            <h2>13. Changes to Terms</h2>
+            <p>
+                We reserve the right to modify these Terms at any time. We will provide notice of material changes by:
+            </p>
+            <ul>
+                <li>Posting the updated Terms on our website</li>
+                <li>Updating the "Last Updated" date</li>
+                <li>Sending an SMS notification (for significant changes)</li>
+            </ul>
+
+            <p>
+                Your continued use of the service after changes become effective constitutes your acceptance of the modified Terms.
+            </p>
+
+            <h2>14. Miscellaneous</h2>
+            
+            <h3>14.1 Entire Agreement</h3>
+            <p>
+                These Terms, together with our Privacy Policy, constitute the entire agreement between you and ConnectSMS regarding the service.
+            </p>
+
+            <h3>14.2 Severability</h3>
+            <p>
+                If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.
+            </p>
+
+            <h3>14.3 Waiver</h3>
+            <p>
+                Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.
+            </p>
+
+            <h3>14.4 Assignment</h3>
+            <p>
+                You may not assign or transfer these Terms without our prior written consent. We may assign our rights and obligations without restriction.
+            </p>
+
+            <h2>15. Contact Information</h2>
+            <p>If you have any questions about these Terms, please contact us:</p>
+            <ul>
+                <li><strong>Company Name:</strong> [Your Company Legal Name]</li>
+                <li><strong>Email:</strong> [Insert Email]</li>
+                <li><strong>Phone:</strong> [Insert Phone Number]</li>
+                <li><strong>Address:</strong> [Insert Physical Address]</li>
+                <li><strong>Website:</strong> [Insert Website URL]</li>
+            </ul>
+
+            <p class="placeholder">
+                [Add your actual contact information]
+            </p>
+
+            <div class="placeholder">
+                <strong>⚖️ LEGAL DISCLAIMER:</strong> This is a template and should not be considered legal advice. Have a qualified attorney review and customize these terms for your specific business, jurisdiction, and legal requirements before publishing them on your website.
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p>© 2025 ConnectSMS. Bridging communities across the cosmos. 🌟</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
