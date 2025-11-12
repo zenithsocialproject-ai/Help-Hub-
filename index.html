@@ -1078,6 +1078,48 @@
             star.style.animationDuration = (Math.random() * 2 + 2) + 's';
             starsContainer.appendChild(star);
         }
+        // Welcome Modal Logic
+const welcomeModal = document.getElementById('welcomeModal');
+const closeModal = document.getElementById('closeModal');
+const needHelpBtn = document.getElementById('needHelpBtn');
+const learnMoreBtn = document.getElementById('learnMoreBtn');
+
+// Check if user has seen modal before (using sessionStorage so it shows once per session)
+if (!sessionStorage.getItem('welcomeModalSeen')) {
+    // Show modal after a short delay
+    setTimeout(() => {
+        welcomeModal.classList.remove('hidden');
+    }, 500);
+} else {
+    welcomeModal.classList.add('hidden');
+}
+
+// Close modal function
+function hideModal() {
+    welcomeModal.classList.add('hidden');
+    sessionStorage.setItem('welcomeModalSeen', 'true');
+}
+
+// Close button
+closeModal.addEventListener('click', hideModal);
+
+// Click outside modal to close
+welcomeModal.addEventListener('click', (e) => {
+    if (e.target === welcomeModal) {
+        hideModal();
+    }
+});
+
+// Button clicks
+needHelpBtn.addEventListener('click', hideModal);
+learnMoreBtn.addEventListener('click', hideModal);
+
+// ESC key to close
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !welcomeModal.classList.contains('hidden')) {
+        hideModal();
+    }
+});
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1098,6 +1140,7 @@
 </body>
 
 </html>
+
 
 
 
