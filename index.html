@@ -17,6 +17,7 @@
 
     
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -174,6 +175,192 @@
                 opacity: 0;
             }
         }
+
+        .welcome-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.welcome-modal.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 31, 58, 0.95) 100%);
+    border: 2px solid rgba(102, 126, 234, 0.5);
+    border-radius: 30px;
+    padding: 50px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 
+        0 0 80px rgba(102, 126, 234, 0.4),
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 60px rgba(102, 126, 234, 0.1);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 107, 107, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.modal-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.modal-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.modal-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.modal-btn-primary {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+}
+
+.modal-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+}
+
+.modal-btn-secondary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.modal-btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px;
+    }
+
+    .modal-content h2 {
+        font-size: 28px;
+    }
+
+    .modal-content p {
+        font-size: 16px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
+}
 
         .container {
             max-width: 1200px;
@@ -702,7 +889,23 @@
 </head>
 <body>
     <div class="stars" id="stars"></div>
-
+<!-- Welcome Modal -->
+<div class="welcome-modal" id="welcomeModal">
+    <div class="modal-content">
+        <button class="modal-close" id="closeModal">×</button>
+        <div class="modal-icon">👋</div>
+        <h2>Welcome to HelpHub!</h2>
+        <p>How can we help you today?</p>
+        <div class="modal-buttons">
+            <a href="#contact" class="modal-btn modal-btn-primary" id="needHelpBtn">
+                <span>🆘 I Need Help</span>
+            </a>
+            <a href="#features" class="modal-btn modal-btn-secondary" id="learnMoreBtn">
+                <span>🚀 Learn About Us</span>
+            </a>
+        </div>
+    </div>
+</div>
     <section class="hero">
         <div class="nebula">
             <div class="nebula-cloud"></div>
@@ -895,6 +1098,7 @@
 </body>
 
 </html>
+
 
 
 
