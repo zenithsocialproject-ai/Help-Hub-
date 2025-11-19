@@ -865,22 +865,20 @@
             // Here you can send the data to your backend
             // For now, we'll simulate a successful submission
             try {
-                // OPTION 1: Send to your own backend
-                // const response = await fetch('YOUR_BACKEND_URL', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(formData)
-                // });
+               
+                // Web3Forms handler
+               const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                access_key: 'YOUR_ACCESS_KEY_HERE',
+                ...formData
+                        })
+                    });
 
-                // OPTION 2: Use a service like Formspree, Web3Forms, or Basin
-                // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(formData)
-                // });
+                    if (!response.ok) throw new Error('Submission failed');
 
-                // OPTION 3: Send email via mailto (fallback - opens email client)
-                // window.location.href = `mailto:hello@connectsms.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
+          
 
                 // Simulate successful submission (remove this and use one of the options above)
                 await new Promise(resolve => setTimeout(resolve, 1500));
