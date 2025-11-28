@@ -1,1 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Get Help - HelpHub | Instant Access to Local Social Services</title>
+    <meta name="description" content="Need help? Get instant access to local social services via text message. Free, private, and works on any phone. Housing, food, healthcare, and more.">
+    <meta name="keywords" content="get help, social services, emergency assistance, food banks, housing help, healthcare access, free services, SMS help">
+    <meta name="author" content="HelpHub">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.helphub-ai.com/get-help.html">
+    <meta property="og:title" content="Get Help - HelpHub">
+    <meta property="og:description" content="Get instant access to local social services via text message. Free, private, and works on any phone.">
+    <meta property="og:site_name" content="HelpHub">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.helphub.com/get-help.html">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #0a0e27;
+            color: white;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #ff6b6b 0%, #0a0e27 50%, #000000 100%);
+        }
+
+        .nebula {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .nebula-cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: nebulaDrift 20s infinite alternate;
+        }
+
+        .nebula-cloud:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.5) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation-duration: 25s;
+        }
+
+        .nebula-cloud:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 217, 61, 0.4) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation-duration: 30s;
+        }
+
+        @keyframes nebulaDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FFD93D, #FF6B6B);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(255, 217, 61, 0.8);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 120px 20px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 217, 61, 0.5));
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 107, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .cta-box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .phone-number {
+            font-size: 36px;
+            font-weight: 900;
+            color: #FFD93D;
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(255, 217, 61, 0.5);
+        }
+
+        .btn {
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .steps-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 217, 61, 0.3));
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 60px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 107, 107, 0.6);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 900;
+            margin: 0 auto 25px;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .step-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .step-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .services-section {
+            padding: 100px 20px;
+            background: radial-gradient(ellipse at center, #1e3a8a 0%, #0a0e27 70%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .service-card {
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .service-card:hover {
+            border-color: rgba(255, 107, 107, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+            transform: translateX(10px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            min-width: 50px;
+        }
+
+        .service-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .service-content p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .faq-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            border-radius: 15px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 107, 107, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFD93D;
+            margin-bottom: 15px;
+        }
+
+        .faq-answer {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .emergency-section {
+            padding: 80px 20px;
+            background: radial-gradient(ellipse at center, #ff6b6b 0%, #0a0e27 70%);
+            text-align: center;
+        }
+
+        .emergency-box {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 107, 107, 0.2);
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 107, 107, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .emergency-box h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .emergency-box p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .emergency-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .emergency-number {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .emergency-number strong {
+            display: block;
+            font-size: 24px;
+            color: #FFD93D;
+            margin-bottom: 10px;
+        }
+
+        .emergency-number p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-switch {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-switch a {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .phone-number {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <section class="hero">
+        <div class="nebula">
+            <div class="nebula-cloud"></div>
+            <div class="nebula-cloud"></div>
+        </div>
+
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">💬</div>
+                    ConnectSMS
+                </a>
+                <ul class="nav-links">
+                    <li><a href="get-help.html">Get Help</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero-content">
+                <h1>
+                    Get the <span class="highlight">Help You Need</span><br>
+                    Fast & Free
+                </h1>
+                <p>
+                    Connect with local social services instantly via text message. No app, no waiting, no barriers. Just help when you need it.
+                </p>
+
+                <div class="cta-box">
+                    <h3>🆘 Need Help Right Now?</h3>
+                    <p>Text us to get started. It's 100% free and private.</p>
+                    <div class="phone-number">(555) 123-4567</div>
+                    <p style="font-size: 16px; opacity: 0.8;">Text "HELP" to this number</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps-section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Getting help is as simple as 1-2-3</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Send a Text</h3>
+                    <p>Text your need to our number. Example: "I need help finding a food bank" or just "HELP"</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>AI Finds Matches</h3>
+                    <p>Our AI asks a few quick questions and finds the best local services for you in seconds</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get Connected</h3>
+                    <p>Receive provider information instantly—names, addresses, hours, and how to reach them</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Services We Can Help You Find</h2>
+            <p class="section-subtitle">Whatever you need, we'll connect you with local providers</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <div class="service-content">
+                        <h3>Housing Assistance</h3>
+                        <p>Emergency shelter, transitional housing, rental assistance, and affordable housing programs</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🍎</div>
+                    <div class="service-content">
+                        <h3>Food & Nutrition</h3>
+                        <p>Food banks, meal programs, SNAP benefits, WIC, and nutrition assistance</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <div class="service-content">
+                        <h3>Healthcare Access</h3>
+                        <p>Free clinics, Medicaid enrollment, prescription assistance, and medical care</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <div class="service-content">
+                        <h3>Mental Health Support</h3>
+                        <p>Counseling services, crisis intervention, therapy, and mental health resources</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <div class="service-content">
+                        <h3>Employment Services</h3>
+                        <p>Job training, resume help, interview prep, and job placement programs</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <div class="service-content">
+                        <h3>Legal Aid</h3>
+                        <p>Free legal advice, representation, tenant rights, and family law assistance</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <div class="service-content">
+                        <h3>Financial Assistance</h3>
+                        <p>Utility help, emergency funds, budgeting support, and financial counseling</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <div class="service-content">
+                        <h3>Family Services</h3>
+                        <p>Childcare, parenting classes, family counseling, and youth programs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="services.html" class="btn">See All Services →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">💬 Is this really free?</div>
+                    <div class="faq-answer">Yes! 100% free for anyone seeking help. You only pay standard SMS rates from your phone carrier (usually free with most plans).</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">🔒 Is my information private?</div>
+                    <div class="faq-answer">Absolutely. Your conversations are private and secure. We never share your personal information without your permission.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">📱 Do I need a smartphone?</div>
+                    <div class="faq-answer">No! ConnectSMS works on any phone that can send and receive text messages, including flip phones.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">⏰ How fast will I get a response?</div>
+                    <div class="faq-answer">Most responses happen within 60 seconds. Our AI system works 24/7 to match you with services instantly.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">🌍 What areas do you cover?</div>
+                    <div class="faq-answer">We're currently serving [Your Service Area]. Text us your zip code to see if we cover your location!</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">❓ What if I don't know what I need?</div>
+                    <div class="faq-answer">No problem! Just text "HELP" and our AI will ask you questions to figure out the best services for your situation.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">🆘 What if it's an emergency?</div>
+                    <div class="faq-answer">If you're in immediate danger, call 911. ConnectSMS is for connecting with social services, not emergency response.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="emergency-section">
+        <div class="container">
+            <div class="emergency-box">
+                <h2>🚨 In a Crisis?</h2>
+                <p>ConnectSMS helps you find social services, but if you're in an emergency, please use these resources immediately:</p>
+                
+                <div class="emergency-numbers">
+                    <div class="emergency-number">
+                        <strong>911</strong>
+                        <p>Police, Fire, Medical Emergency</p>
+                    </div>
+                    <div class="emergency-number">
+                        <strong>988</strong>
+                        <p>Suicide & Crisis Lifeline</p>
+                    </div>
+                    <div class="emergency-number">
+                        <strong>211</strong>
+                        <p>Community Resources Hotline</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="get-help.html">Get Help</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>© 2025 ConnectSMS. Bridging communities across the cosmos. 🌟</p>
+            
+            <div class="footer-switch">
+                <p>Are you a social service provider? <a href="providers.html">Partner with us →</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
